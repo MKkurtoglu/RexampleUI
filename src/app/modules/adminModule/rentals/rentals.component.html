@@ -1,0 +1,34 @@
+<div *ngIf="dataloaded==false" class="spinner-border" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+  <table *ngIf="dataloaded==true" class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Araba Markası </th>
+          <th scope="col">Şirket Adı</th>
+          <th scope="col">Kiralama Tarihi</th>
+          <th scope="col">Kiralama Bitiş</th>
+          <th scope="col">Durum</th>
+          
+          
+          
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let rental of data; ">
+          
+          <td>{{ rental.rentalId }}</td>
+          <td>{{ rental.carName}}</td>
+          <td>{{ rental.customerFullName }}</td>
+          <td>{{ rental.rentDate }}</td>
+          <td>{{ rental.returnDate }}</td>
+          <td>{{ rental.status ? 'Kiralık' : 'Kiralık Değil' }}</td>
+          
+  
+         
+         
+        </tr>
+      </tbody>
+    </table>
+

@@ -1,0 +1,13 @@
+
+<!-- Liste Seçim Butonları -->
+<!-- Button Group for List Selection -->
+<div class="btn-group my-3  d-flex justify-content-center" role="group">
+  <button type="button" class="btn btn-primary me-2" (click)="showList('cars')">Arabaları Listele</button>
+  <button type="button" class="btn btn-primary me-2" (click)="showList('brands')">Markaları Listele</button>
+  <button type="button" class="btn btn-primary me-2" (click)="showList('colors')">Renkleri Listele</button>
+</div>
+
+<!-- Component Rendering Based on Selected List -->
+<app-edit-car *ngIf="selectedComponent === 'cars'" [selectedComponent]="selectedComponent"></app-edit-car>
+<app-edit-brand *ngIf="selectedComponent === 'brands'" [selectedComponent]="selectedComponent"></app-edit-brand>
+<app-edit-color *ngIf="selectedComponent === 'colors'" [selectedComponent]="selectedComponent"></app-edit-color>

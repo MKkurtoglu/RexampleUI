@@ -1,0 +1,19 @@
+<div class="text-center mb-4">
+    <!-- Profil Resmi -->
+    <img *ngIf="profileImageData; else noImage" id="profileImage" class="profile-image" [src]="getImageUrl(profileImageData.url)" alt="Profil Resmi">
+  
+    <!-- Profil resmi yoksa gösterilecek mesaj -->
+    <ng-template #noImage>
+      <p>Profil resmi mevcut değil. Yeni bir resim yükleyebilirsiniz.</p>
+    </ng-template>
+  
+    <!-- Yeni resim ekleme ve güncelleme -->
+    <label for="fileInput" class="btn btn-info mt-3">
+      Profil Resmi Yükle/Düzenle
+    </label>
+    <input type="file" id="fileInput" class="file-input" accept="image/*" (change)="onFileChange($event)" style="display: none;">
+    
+    <!-- Profil Resmini Silme Butonu, sadece resim varsa gösterilir -->
+    <button *ngIf="profileImageData" type="button" class="btn btn-danger mt-2" (click)="removeProfileImage()">Resmi Sil</button>
+  </div>
+  

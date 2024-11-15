@@ -1,0 +1,82 @@
+/* Genel Flex Hizalama Stili */
+.selectMenu {
+  display: flex;
+  align-items: flex-end;
+}
+
+/* Kart Konteyner Stili */
+.card {
+  margin-bottom: 1.5rem; /* Kartlar arasında boşluk */
+  border: none; /* Kenarlık kaldırıldı */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Hafif gölge efekti */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hover animasyonu */
+}
+
+/* Kart Hover Durumu */
+.card:hover {
+  transform: translateY(-5px); /* Hover sırasında yukarı hareket */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Daha belirgin gölge */
+}
+
+/* Kart Üstündeki Görsel */
+.card-img-top, .fixed-image {
+  width: 100%;
+  height: 200px; /* Görselin yüksekliği */
+  object-fit: cover; /* Görüntünün bozulmamasını sağlar */
+  border-radius: 8px 8px 0 0; /* Kartın köşelerini yuvarla */
+}
+
+/* Kart İçeriği */
+.card-body {
+  padding: 1.5rem; /* Kartın içindeki boşluk */
+  text-align: center; /* İçeriği ortalar */
+  background-color: #f8f9fa; /* Hafif arka plan rengi */
+}
+
+/* Kart Başlık ve Metin */
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 700; /* Kalın yazı tipi */
+  color: #343a40; /* Koyu renk */
+}
+
+.card-text {
+  font-size: 1rem;
+  color: #6c757d; /* Daha hafif metin rengi */
+}
+
+/* Listede Ortalanmış Elemanlar */
+.list-group-item {
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* Kirala Butonu */
+.btn-primary {
+  background-color: #007bff; /* Mavi ton */
+  border: none; /* Kenarlık yok */
+  transition: background-color 0.3s ease; /* Hover animasyonu */
+}
+
+.btn-primary:hover {
+  background-color: #0056b3; /* Daha koyu mavi hover rengi */
+}
+
+/* Carousel Butonları */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: invert(100%); /* Beyaz simgeler */
+}
+
+/* Genel Satır ve Kart Yerleşimi */
+.row {
+  margin-top: 20px;
+}
+
+.row > .col-lg-4,
+.row > .col-md-6,
+.row > .col-sm-12 {
+  display: flex;
+  justify-content: center; /* Kartları ortalar */
+}

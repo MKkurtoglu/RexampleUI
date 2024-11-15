@@ -1,0 +1,89 @@
+<div *ngIf="dataloaded==false" class="spinner-border" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+
+  <app-search 
+  (textFilterChanged)="handleTextFilter($event)"
+  (selectedBrandChanged)="handleBrandFilter($event)"
+  (selectedColorChanged)="handleColorFilter($event)">
+</app-search>
+ 
+  <!-- <table *ngIf="dataloaded==true" class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+
+          <th scope="col">Marka</th>
+          <th scope="col">Renk</th>
+          <th scope="col">Model</th>
+          <th scope="col">Günlük Kiralama Ücreti </th>
+          <th scope="col">Resimler </th>
+          
+          
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let car of data | colorFilter: selectedColor">
+            <td  >{{ car.carId }}</td>
+          
+          <td [routerLink]="['/Markalar/Arabalar/Resimler',car.brandName]" style="cursor: pointer;" >{{ car.brandName }}</td>
+          <td [routerLink]="['/Renkler/Arabalar',car.colorName]" style="cursor: pointer;">{{ car.colorName }}</td>
+          <td>{{ car.modelYear }}</td>
+          <td>{{ car.dailyPrice }}</td>
+          <td >
+            <img *ngFor="let img of car.imagePaths" [src]="getImageUrl(img)" width="100" style="display: inline-block; margin-right: 1rem;" />
+            
+        </td>
+         
+         
+        </tr>
+      </tbody>
+    </table> -->
+
+
+    <div class="row">
+      <div *ngFor="let car of data | brandFilter:selectedBrand | colorFilter:selectedColor | carFilter:textFilter " class="col-lg-4 col-md-6 col-sm-12">
+        <div class="card" style="width: 18rem;">
+        
+          <!-- Bootstrap Carousel for Multiple Images -->
+          <div id="carousel{{car.carId}}" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div *ngFor="let imagePath of car.imagePaths; let i = index" class="carousel-item" [ngClass]="{'active': i === 0}">
+                    <img [src]="getImageUrl(imagePath)" class="d-block w-100 fixed-image" alt="Car image">
+                </div>
+            </div>
+            <!-- Previous Button -->
+            <button class="carousel-control-prev" type="button" [attr.data-bs-target]="'#carousel' + car.carId" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <!-- Next Button -->
+            <button class="carousel-control-next" type="button" [attr.data-bs-target]="'#carousel' + car.carId" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+  
+          <div class="card-body">
+            <h5 class="card-title" style="text-align: center;">{{ car.brandName | uppercase}}</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          </div>
+  
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item" style="text-align: center;">{{ car.colorName | uppercase}}</li>
+            <li class="list-group-item" style="text-align: center;">{{ car.modelYear }}</li>
+            <li class="list-group-item" style="text-align: center;">{{ car.dailyPrice | currency :'₺' }}</li>
+          </ul>
+  
+          <div class="card-body">
+            <div class="d-grid gap-2 col-6 mx-auto">
+              <button class="btn btn-primary" type="button" (click)="selectCar(car)">Kirala</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    

@@ -1,0 +1,37 @@
+.table {
+    margin-top: 20px; /* Tabloya üstten boşluk ekler */
+  }
+  
+  .form-container {
+    border: 1px solid #ddd; /* Form etrafına ince bir çerçeve ekler */
+    padding: 20px; /* Form içeriği için boşluk ekler */
+    border-radius: 8px; /* Köşeleri yuvarlar */
+    background-color: #f9f9f9; /* Hafif bir arka plan rengi ekler */
+    max-width: 500px; /* Maksimum genişlik ayarlar */
+  }
+  
+  .form-group {
+    margin-bottom: 15px; /* Form grubu arasındaki boşluğu arttırır */
+  }
+  
+  button {
+    margin-right: 10px; /* Butonlar arasında sağa boşluk ekler */
+  }
+  
+  .btn-block {
+    width: 100%; /* Butonu genişletir, tam genişlikte yapar */
+  }
+  
+  .d-flex {
+    display: flex; /* Flexbox düzenini uygular */
+    gap: 10px; /* Butonlar arasında boşluk oluşturur */
+  }
+  
+  .mt-3 {
+    margin-top: 1rem; /* Üstten margin ekler */
+  }
+  
+  .mt-4 {
+    margin-top: 1.5rem; /* Üstten daha fazla margin ekler */
+  }
+  

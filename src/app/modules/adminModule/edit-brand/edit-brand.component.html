@@ -1,0 +1,41 @@
+<!-- Renk Listesi Tablosu -->
+<table *ngIf="selectedComponent === 'brands'" class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Marka</th>
+      <th scope="col">İşlemler</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let brand of brands">
+      <td>{{ brand.brandId }}</td>
+      <td>{{ brand.brandName }}</td>
+      <td>
+        <button class="btn btn-warning btn-sm me-2" (click)="editBrand(brand)">Düzenle</button>
+        <button class="btn btn-danger btn-sm" (click)="deletebrand(brand.brandId)">Sil</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Renk Ekleme Butonu -->
+<div class="col-md-2 mt-3">
+  <button class="btn btn-primary btn-block" type="button" (click)="showAdd()">Marka Ekle</button>
+</div>
+
+<!-- Renk Ekleme/Düzenleme Formu -->
+<div *ngIf="isAddingOrEditing" class="mt-4 form-container">
+  <h3>Marka Ekleme / Güncelleme</h3>
+  <form [formGroup]="brandForm" (ngSubmit)="onSubmit()">
+    <div class="form-group mb-3">
+      <label for="brandName">Marka</label>
+      <input id="brandName" formControlName="brandName" type="text" class="form-control" placeholder="Marka Adı Girin">
+    </div>
+
+    <div class="d-flex gap-2">
+      <button type="submit" class="btn btn-primary">Kaydet</button>
+      <button type="button" class="btn btn-secondary" (click)="backandreset()">Vazgeç</button>
+    </div>
+  </form>
+</div>

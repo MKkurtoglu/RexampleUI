@@ -1,0 +1,111 @@
+<div container fade-in>
+  <table *ngIf="selectedComponent === 'cars'" class="table table-striped col-md-10 table-responsive">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Marka</th>
+        <th scope="col">Renk</th>
+        <th scope="col">Model Yılı</th>
+        <th scope="col">Fiyat</th>
+        <th scope="col">İşlemler</th>
+        <th scope="col">Resimler</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let car of cars">
+        <td data-label="id">{{ car.carId }}</td>
+        <td data-label="Marka">{{ car.brandName }}</td>
+        <td data-label="Renk">{{ car.colorName }}</td>
+        <td data-label="Model Yılı">{{ car.modelYear }}</td>
+        <td data-label="Günlük Fiyat">{{ car.dailyPrice | currency }}</td>
+  
+        <td class="islem">
+          <label [for]="'fileInput-' + car.carId" class="btn btn-info mt-3">
+            Araba Resmi Ekle
+          </label>
+          <input type="file" [id]="'fileInput-' + car.carId" class="file-input" accept="image/*"
+            (change)="onFileChange($event, car.carId)" style="display: none;">
+          <button class="btn btn-warning btn-sm me-2" (click)="editCar(car)">Düzenle</button>
+          <button class="btn btn-danger btn-sm" (click)="deleteCar(car.carId)">Sil</button>
+        </td>
+        <td >
+          <button [routerLink]="['/Admin/Arabalar/Resimler', car.carId]" class="btn btn-primary btn-sm">
+            Resimler
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  
+
+<div class="col-md-2">
+    <button class="btn btn-primary " type="button" (click)="showAdd()">Araç Ekle</button>
+</div>
+</div>
+
+
+  <!-- app-edit-car.component.html -->
+  <div *ngIf="isAddingOrEditing">
+    <h3>Araba Ekleme / Güncelleme</h3>
+    <form [formGroup]="carForm" (ngSubmit)="onSubmit()">
+      
+      <!-- Marka -->
+      <div class="form-group">
+        <label for="brand">Marka</label>
+        <select id="brand" formControlName="brandId" class="form-control">
+          <option *ngFor="let brand of brands" [value]="brand.brandId">{{ brand.brandName }}</option>
+        </select>
+        <div *ngIf="carForm.get('brandId')?.touched && carForm.get('brandId')?.invalid" class="text-danger">
+          Marka seçimi zorunludur.
+        </div>
+      </div>
+  
+      <!-- Renk -->
+      <div class="form-group">
+        <label for="color">Renk</label>
+        <select id="color" formControlName="colorId" class="form-control">
+          <option *ngFor="let color of colors" [value]="color.colorId">{{ color.colorName }}</option>
+        </select>
+        <div *ngIf="carForm.get('colorId')?.touched && carForm.get('colorId')?.invalid" class="text-danger">
+          Renk seçimi zorunludur.
+        </div>
+      </div>
+  
+      <!-- Model Yılı -->
+      <div class="form-group">
+        <label for="modelYear">Model Yılı</label>
+        <input id="modelYear" formControlName="modelYear" type="number" class="form-control" placeholder="Model Yılı Girin">
+        <div *ngIf="carForm.get('modelYear')?.touched && carForm.get('modelYear')?.hasError('required')" class="text-danger">
+          Model yılı zorunludur.
+        </div>
+        <div *ngIf="carForm.get('modelYear')?.touched && carForm.get('modelYear')?.hasError('maxYear')" class="text-danger">
+          Model yılı 4 yıldan daha eski olamaz.
+        </div>
+      </div>
+  
+      <!-- Günlük Fiyat -->
+      <div class="form-group">
+        <label for="dailyPrice">Günlük Fiyat</label>
+        <input id="dailyPrice" formControlName="dailyPrice" type="number" class="form-control" placeholder="Günlük Fiyat Girin">
+        <div *ngIf="carForm.get('dailyPrice')?.touched && carForm.get('dailyPrice')?.hasError('required')" class="text-danger">
+          Günlük fiyat zorunludur.
+        </div>
+        <div *ngIf="carForm.get('dailyPrice')?.touched && carForm.get('dailyPrice')?.hasError('min')" class="text-danger">
+          Günlük fiyat en az 1 olmalıdır.
+        </div>
+      </div>
+  
+      <!-- Açıklama -->
+      <div class="form-group">
+        <label for="description">Açıklama</label>
+        <textarea id="description" formControlName="description" class="form-control" placeholder="Açıklama Girin"></textarea>
+        <div *ngIf="carForm.get('description')?.touched && carForm.get('description')?.hasError('required')" class="text-danger">
+          Açıklama zorunludur.
+        </div>
+      </div>
+  
+      <button type="submit" class="btn btn-primary">Kaydet</button>
+      <button type="button" class="btn btn-primary" (click)="backandreset()">Vazgeç</button>
+    </form>
+  </div>
+  

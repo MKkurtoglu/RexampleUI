@@ -1,0 +1,70 @@
+<div *ngIf="selectedCar">
+    <h2>Kiralama Özeti</h2>
+
+    <div class="card" style="width: 18rem;">
+      <div id="carousel{{selectedCar.carId}}" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div *ngFor="let imagePath of selectedCar.imagePaths; let i = index" class="carousel-item" [ngClass]="{'active': i === 0}">
+            <img [src]="getImageUrl(imagePath)" class="d-block w-100 fixed-image" alt="Car image">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" [attr.data-bs-target]="'#carousel' + selectedCar.carId" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" [attr.data-bs-target]="'#carousel' + selectedCar.carId" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+
+      <div class="card-body">
+        <h5 class="card-title" style="text-align: center;">{{ selectedCar.brandName | uppercase}}</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      </div>
+
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item" style="text-align: center;">{{ selectedCar.colorName | uppercase}}</li>
+        <li class="list-group-item" style="text-align: center;">{{ selectedCar.modelYear }}</li>
+        <li class="list-group-item" style="text-align: center;">{{ selectedCar.dailyPrice | currency :'₺' }}</li>
+      </ul>
+    </div>
+
+
+
+     <!-- Kiralama Tarih Seçimi -->
+     <div class="mt-4">
+        <h3>Kiralama Tarihleri</h3>
+  
+        <!-- Responsive Grid with Bootstrap -->
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="startDate">Kiralama Başlangıç Tarihi</label>
+            <input type="date" id="startDate" class="form-control" [(ngModel)]="startDate" name="startDate" required>
+            <label for="rentTimeHour">Kiralama Saati:</label>
+            <select id="rentTimeHour" [(ngModel)]="rentTimeHour">
+              <option *ngFor="let hour of hours" [value]="hour">{{ hour }}</option>
+            </select>
+            <select id="rentTimeMinute" [(ngModel)]="rentTimeMinute">
+                <option *ngFor="let minute of minutes" [value]="minute">{{ minute }}</option>
+              </select>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="endDate">Kiralama Bitiş Tarihi</label>
+            <input type="date" id="endDate" class="form-control" [(ngModel)]="endDate" name="endDate" required>
+            <label for="returnTimeHour">Kiralama Dönüş Saati:</label>
+            <select id="returnTimeHour" [(ngModel)]="returnTimeHour">
+                <option *ngFor="let hour of hours" [value]="hour">{{ hour }}</option>
+              </select>
+            <select id="returnTimeMinute" [(ngModel)]="returnTimeMinute">
+                <option *ngFor="let minute of minutes" [value]="minute">{{ minute }}</option>
+              </select>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Kiralama Onaylama -->
+      <div class="d-grid gap-2 col-6 mx-auto mt-3">
+        <button class="btn btn-primary"  (click)="combineDateAndTime()" (click)="confirmRental()">Kiralama İşlemini Tamamla</button>
+      </div>
+</div>

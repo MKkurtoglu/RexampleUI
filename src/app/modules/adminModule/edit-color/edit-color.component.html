@@ -1,0 +1,41 @@
+<!-- Renk Listesi Tablosu -->
+<table *ngIf="selectedComponent === 'colors'" class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Renk</th>
+      <th scope="col">İşlemler</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let color of colors">
+      <td>{{ color.colorId }}</td>
+      <td>{{ color.colorName }}</td>
+      <td>
+        <button class="btn btn-warning btn-sm me-2" (click)="editColor(color)">Düzenle</button>
+        <button class="btn btn-danger btn-sm" (click)="deleteColor(color.colorId)">Sil</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Renk Ekleme Butonu -->
+<div class="col-md-2 mt-3">
+  <button class="btn btn-primary btn-block" type="button" (click)="showAdd()">Renk Ekle</button>
+</div>
+
+<!-- Renk Ekleme/Düzenleme Formu -->
+<div *ngIf="isAddingOrEditing" class="mt-4 form-container">
+  <h3>Renk Ekleme / Güncelleme</h3>
+  <form [formGroup]="colorForm" (ngSubmit)="onSubmit()">
+    <div class="form-group mb-3">
+      <label for="colorName">Renk Adı</label>
+      <input id="colorName" formControlName="colorName" type="text" class="form-control" placeholder="Renk Adı Girin">
+    </div>
+
+    <div class="d-flex gap-2">
+      <button type="submit" class="btn btn-primary">Kaydet</button>
+      <button type="button" class="btn btn-secondary" (click)="backandreset()">Vazgeç</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,44 @@
+.btn-group {
+    margin-bottom: 30px; /* Alt boşluk */
+  }
+  
+  .btn-group .btn {
+    min-width: 150px; /* Butonların genişliği */
+    padding: 10px 20px; /* Buton iç boşlukları */
+    font-size: 16px; /* Buton yazı boyutu */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Geçiş efektleri */
+  }
+  
+  /* Button Hover and Active States */
+  .btn-group .btn:hover,
+  .btn-group .btn:focus {
+    background-color: #0056b3; /* Hover durumu için koyu mavi */
+    color: white; /* Hover durumu için yazı rengi */
+  }
+  
+  .btn-group .btn:active {
+    background-color: #003d7a; /* Tıklama durumu için daha koyu mavi */
+    color: white; /* Tıklama durumu için yazı rengi */
+  }
+  
+  /* Component Container Styling */
+  .component-container {
+    background-color: white; /* Bileşenler için beyaz arka plan */
+    border-radius: 8px; /* Köşeleri yuvarlat */
+    padding: 20px; /* İçerik boşluğu */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Hafif gölge efekti */
+    max-width: 800px; /* Maksimum genişlik */
+    margin: 0 auto; /* Ortala */
+  }
+  
+  /* Responsive Design for Smaller Screens */
+  @media (max-width: 768px) {
+    .btn-group .btn {
+      min-width: 120px; /* Küçük ekranlar için buton genişliği */
+      font-size: 14px; /* Küçük ekranlar için yazı boyutu */
+    }
+    .component-container {
+      padding: 15px; /* Küçük ekranlar için iç boşluk */
+      max-width: 100%; /* Tam genişlikte olmasını sağlar */
+    }
+  }

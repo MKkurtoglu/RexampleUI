@@ -1,0 +1,10 @@
+<div *ngIf="car && car.length > 0" class="image-gallery">
+    <div class="image-item" *ngFor="let carImage of car">
+      <img [src]="getImageUrl(carImage.imagePath)" alt="Car image" (click)="openImageInModal(carImage.imagePath)">
+      <button (click)="deleteImage(carImage.imageId)">Delete Image</button>
+    </div>
+  </div>
+  <div *ngIf="!car || car.length === 0">
+    No images available.
+  </div>
+  

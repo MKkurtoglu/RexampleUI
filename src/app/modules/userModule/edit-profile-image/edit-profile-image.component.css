@@ -1,0 +1,152 @@
+.text-center {
+    text-align: center;
+  }
+  
+  .profile-image {
+    width: 150px;        /* Profil resmi boyutu */
+    height: 150px;       /* Profil resmi boyutu */
+    border-radius: 50%;  /* Yuvarlak profil resmi */
+    object-fit: cover;   /* Resmin düzgün şekilde sığması */
+    border: 2px solid #007bff; /* Resmin etrafına renkli çerçeve */
+    margin-bottom: 15px; /* Alt boşluk */
+  }
+  
+  .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-info {
+    background-color: #17a2b8;
+    color: white;
+  }
+  
+  .btn-info:hover {
+    background-color: #138496;
+  }
+  
+  .btn-danger {
+    background-color: #dc3545;
+    color: white;
+  }
+  
+  .btn-danger:hover {
+    background-color: #c82333;
+  }
+  
+  .file-input {
+    display: none; /* Dosya seçici görünmez */
+  }
+  
+  #fileInput:focus + label,
+  #fileInput:hover + label {
+    background-color: #138496;
+  }
+  
+  .edit-icon {
+    display: inline-block;
+    cursor: pointer;
+    font-size: 16px;
+    color: #007bff;
+  }
+  
+  .edit-icon:hover {
+    color: #0056b3;
+  }
+  
+  .mt-3 {
+    margin-top: 1rem;
+  }
+  
+  .mt-2 {
+    margin-top: 0.5rem;
+  }
+  
+  .mb-4 {
+    margin-bottom: 1.5rem;
+  }
+  .text-center {
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .profile-image {
+    width: 150px;        /* Profil resmi boyutu */
+    height: 150px;       /* Profil resmi boyutu */
+    border-radius: 50%;  /* Yuvarlak profil resmi */
+    object-fit: cover;   /* Resmin düzgün şekilde sığması */
+    border: 2px solid #007bff; /* Resmin etrafına renkli çerçeve */
+    margin-bottom: 15px; /* Alt boşluk */
+  }
+  
+  .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin: 10px 5px;  /* Butonlar arasında boşluk */
+    width: 100%;       /* Butonlar genişlik olarak tam ekran olacak şekilde */
+  }
+  
+  .btn-info {
+    background-color: #17a2b8;
+    color: white;
+  }
+  
+  .btn-info:hover {
+    background-color: #138496;
+  }
+  
+  .btn-danger {
+    background-color: #dc3545;
+    color: white;
+  }
+  
+  .btn-danger:hover {
+    background-color: #c82333;
+  }
+  
+  .file-input {
+    display: none; /* Dosya seçici görünmez */
+  }
+  
+  .edit-icon {
+    display: inline-block;
+    cursor: pointer;
+    font-size: 16px;
+    color: #007bff;
+  }
+  
+  .edit-icon:hover {
+    color: #0056b3;
+  }
+  
+  /* Butonları mobil uyumlu yapmak için flexbox kullanıyoruz */
+  .button-container {
+    display: flex;
+    flex-direction: column;  /* Default olarak butonlar alt alta */
+    align-items: center;
+    justify-content: center;
+  }
+  
+  @media (min-width: 768px) {
+    /* Daha büyük ekranlar için butonları yan yana diz */
+    .button-container {
+      flex-direction: row;
+    }
+    
+    .btn {
+      width: auto;  /* Geniş ekranlarda butonlar içerik kadar geniş */
+    }
+  }
+  

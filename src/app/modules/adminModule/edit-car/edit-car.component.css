@@ -1,0 +1,406 @@
+/* Genel Stil Ayarları */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+  }
+  
+  /* Buton Grupları */
+  .btn-group {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .btn-group .btn {
+    flex: 1;
+    margin: 0 5px;
+  }
+  
+  /* Tablo Stili */
+  .table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 1rem;
+    background-color: transparent;
+    border-collapse: collapse;
+  }
+  
+  .table thead th {
+    background-color: #007bff;
+    color: #fff;
+    text-align: center;
+  }
+  
+  .table th, .table td {
+    padding: 10px;
+    text-align: center;
+    vertical-align: middle;
+    border-top: 1px solid #dee2e6;
+    
+  }
+  
+  .table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+  
+  /* Form Stili */
+  form {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  form .form-group {
+    margin-bottom: 15px;
+  }
+  
+  form .form-control {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+  }
+  
+  form button {
+    width: 100%;
+    margin-top: 10px;
+  }
+  @media (min-width: 768px){
+    /* .table-responsive {
+      display: block;
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    } */
+  
+    .table td {
+      white-space: nowrap;
+      
+    }
+  .islem{
+    display: flex;
+    align-items: end;
+  }
+    .btn-group {
+      flex-direction: column;
+    }
+  
+    .btn-group .btn {
+      margin-bottom: 10px;
+    }
+  }
+  /* Responsive Tasarım */
+  @media (max-width: 768px) {
+    .table-responsive {
+      display: block;
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+  
+    .table th, .table td {
+      white-space: nowrap;
+    }
+  
+    .btn-group {
+      flex-direction: column;
+    }
+  
+    .btn-group .btn {
+      margin-bottom: 10px;
+    }
+  }
+  
+  /* Küçük Cihazlar için İyileştirmeler */
+  @media (max-width: 576px) {
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+    }
+  
+    form .btn {
+      margin-bottom: 10px;
+    }
+  }
+  /* Küçük cihazlarda butonları dikey hizalama */
+@media (max-width: 576px) {
+  .table td {
+      display: block;
+      text-align: center;
+  }
+  
+  .table td button {
+      width: 100%;
+      margin-bottom: 10px;
+  }
+}
+/* Tablo içindeki butonların stili */
+.table td button {
+  display: inline-block;
+  margin-right: 5px; /* Butonlar arası boşluk */
+  margin-bottom: 5px; /* Küçük ekranlarda alt alta sıralandığında boşluk */
+}
+
+/* Profil resmi için input buton stili */
+.file-input {
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+/* Formdaki butonları düzene sokmak için */
+form button {
+  display: inline-block;
+  width: auto; /* Butonlar tam genişlik olmasın */
+  margin-right: 10px; /* Butonlar arasında boşluk */
+  margin-top: 10px; /* Üstten boşluk */
+}
+/* Genel Stil Ayarları */
+body {
+  font-family: 'Roboto', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f7fa;
+  color: #333;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Buton Grupları */
+.btn-group {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.btn-group .btn {
+  flex: 1;
+  margin: 5px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+/* Tablo Stili */
+.table-responsive {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.table thead th {
+  background-color: #f8f9fa;
+  color: #495057;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 15px;
+  font-size: 0.9em;
+  letter-spacing: 0.5px;
+  border-bottom: 2px solid #dee2e6;
+}
+
+.table tbody tr:hover {
+  background-color: #f1f3f5;
+}
+
+.table th, .table td {
+  padding: 12px;
+  text-align: left;
+  vertical-align: middle;
+  border-top: 1px solid #dee2e6;
+}
+
+/* Form Stili */
+form {
+  background-color: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+form .form-group {
+  margin-bottom: 20px;
+}
+
+form .form-control {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+form .form-control:focus {
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: #495057;
+}
+
+form button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Özel Buton Stilleri */
+.btn-info {
+  background-color: #17a2b8;
+  color: white;
+}
+
+.btn-warning {
+  background-color: #ffc107;
+  color: #212529;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  color: white;
+}
+
+.btn-sm {
+  padding: 5px 10px;
+  font-size: 12px;
+}
+
+/* Responsive Tasarım */
+@media (max-width: 768px) {
+  .table-responsive {
+    border: 0;
+  }
+
+  .table thead {
+    display: none;
+  }
+
+  .table tbody tr {
+    margin-bottom: 10px;
+    display: block;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+
+  .table td {
+    
+    text-align: right;
+    padding-left: 50%;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .table td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+    font-weight: bold;
+    text-align: left;
+  }
+
+  .btn-group {
+    flex-direction: column;
+  }
+
+  .btn-group .btn {
+    margin-bottom: 10px;
+  }
+}
+
+/* Küçük Cihazlar için İyileştirmeler */
+@media (max-width: 576px) {
+  form .btn {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .table td button {
+    width: 100%;
+    margin-bottom: 5px;
+  }
+}
+
+/* Animasyonlar ve Geçişler */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in;
+}
+
+/* Ek Stil İyileştirmeleri */
+.text-danger {
+  color: #dc3545;
+  font-size: 0.9em;
+  margin-top: 5px;
+}
+
+.file-input + label {
+  cursor: pointer;
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  touch-action: manipulation;
+  cursor: pointer;
+  user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  color: #fff;
+  background-color: #5bc0de;
+  border-color: #46b8da;
+}
+
+.file-input + label:hover {
+  background-color: #31b0d5;
+  border-color: #269abc;
+}
